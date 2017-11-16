@@ -1,6 +1,6 @@
 
 
-namespace MayconJr.StringParser.Models
+namespace FTCRegex.Models
 {
 
     /* Represents the response to the client of the API.

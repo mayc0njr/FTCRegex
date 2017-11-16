@@ -1,6 +1,6 @@
 
 
-namespace MayconJr.StringParser.Models
+namespace FTCRegex.Models
 {
     public class Request
     {

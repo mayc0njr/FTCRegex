@@ -1,6 +1,6 @@
 using System.Collections.Generic;
 
-namespace MayconJr.StringParser.Models
+namespace FTCRegex.Models
 {
     /* Represents a Automaton, that contains an Alphabet, a set of states, a set of final states. (with transition function).
      * Used to recognize tags, accepting/rejecting inputs.

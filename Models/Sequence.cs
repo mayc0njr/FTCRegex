@@ -2,7 +2,7 @@ using System;
 using System.Text;
 using System.Collections.Generic;
 
-namespace MayconJr.StringParser.Models
+namespace FTCRegex.Models
 {
     /* Represents a sequence of symbols merged by Operator.
      * Provides basic functions to compare Sequences.

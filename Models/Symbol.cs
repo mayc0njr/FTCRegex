@@ -1,6 +1,6 @@
 
 
-namespace MayconJr.StringParser.Models
+namespace FTCRegex.Models
 {
     /* Represents a single symbol that can be Stacked into a SymbolStack.
      * Provides the basic function to compare symbols.

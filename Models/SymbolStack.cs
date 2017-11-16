@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 
 
-namespace MayconJr.StringParser.Models
+namespace FTCRegex.Models
 {
     public class SymbolStack
     {

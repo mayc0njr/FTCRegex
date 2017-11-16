@@ -1,7 +1,7 @@
 
 
 
-namespace MayconJr.StringParser.Models
+namespace FTCRegex.Models
 {
     /* Represents an operators between Stackable Elements, like Sequences or symbols.
      * Provides basic compare and represent functions.

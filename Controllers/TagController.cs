@@ -4,9 +4,9 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 
-using MayconJr.StringParser.Models;
+using FTCRegex.Models;
 
-namespace StringParser.Controllers
+namespace FTCRegex.Controllers
 {
     [Route("api/[controller]")]
     public class TagController : Controller
@@ -20,7 +20,7 @@ namespace StringParser.Controllers
 
         // POST api/values
         [HttpPost]
-        public IActionResult Create([FromBody]Tag item)
+        public FTCResponse Create([FromBody]Tag item)
         {
             SymbolStack sb = new SymbolStack();
             var response = new FTCResponse(){
@@ -69,7 +69,7 @@ namespace StringParser.Controllers
                 if(!valid)
                 {
                     response.Content = Tag.INVALID_DEFINITION;
-                    return Ok(response);
+                    return response;
                 }
                 var itens = from u in _context.Tags
                                 where u.Equals(item)
@@ -82,7 +82,12 @@ namespace StringParser.Controllers
             _context.SaveChanges();
             response.Code = FTCResponse.INFO;
             }
-            return Ok(response);
+            return response;
+        }
+
+        public Tag[] GetAction()
+        {
+            return _context.Tags.ToArray();
         }
     }
 }

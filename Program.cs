@@ -20,6 +20,10 @@ namespace FTCRegex
         public static IWebHost BuildWebHost(string[] args) =>
             WebHost.CreateDefaultBuilder(args)
                 .UseStartup<Startup>()
+                // .ConfigureAppConfiguration((hostContext, config) =>
+                // {
+                //     config.AddJsonFile("myconfig.json", optional: true);
+                // })
                 .Build();
     }
 }

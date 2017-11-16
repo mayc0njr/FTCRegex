@@ -1,6 +1,6 @@
 
 
-namespace MayconJr.StringParser.Models
+namespace FTCRegex.Models
 {
     /* Represents a Transition, that contains a symbol, and a target-state.
      * Used in a list to represent a Transition-Function.

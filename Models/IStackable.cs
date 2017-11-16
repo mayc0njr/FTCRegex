@@ -1,4 +1,4 @@
-namespace MayconJr.StringParser.Models
+namespace FTCRegex.Models
 {
     
     /* Represents an object that can be stacked on the SymbolStack.

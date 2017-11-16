@@ -8,6 +8,10 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
+using Microsoft.EntityFrameworkCore;
+
+using FTCRegex.Models;
+using FTCRegex.Utils;
 
 namespace FTCRegex
 {
@@ -21,13 +25,18 @@ namespace FTCRegex
         public IConfiguration Configuration { get; }
 
         // This method gets called by the runtime. Use this method to add services to the container.
-        public void ConfigureServices(IServiceCollection services)
+        public IServiceProvider ConfigureServices(IServiceCollection services)
         {
+            var connection = Configuration["ConnectionStrings:DefaultConnection"];
+            services.AddEntityFrameworkMySql()
+            .AddOptions()
+            .AddDbContext<TagContext>(opt => opt.UseMySql(connection));
             services.AddMvc();
+            return services.BuildServiceProvider();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env)
+        public void Configure(IApplicationBuilder app, IHostingEnvironment env, IServiceProvider serviceProvider)
         {
             if (env.IsDevelopment())
             {
@@ -35,6 +44,9 @@ namespace FTCRegex
             }
 
             app.UseMvc();
+            Console.WriteLine("CHEGOU AQUI E DEU MERDA DEPOIS...");
+            var dbContext = serviceProvider.GetService<TagContext>();
+            InitializeBD.Initialize(dbContext);
         }
     }
 }

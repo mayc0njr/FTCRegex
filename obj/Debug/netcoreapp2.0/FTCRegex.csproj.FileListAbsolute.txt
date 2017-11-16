@@ -1,0 +1,10 @@
+/home/maycon/dotnet/FTCRegex/bin/Debug/netcoreapp2.0/FTCRegex.deps.json
+/home/maycon/dotnet/FTCRegex/bin/Debug/netcoreapp2.0/FTCRegex.runtimeconfig.json
+/home/maycon/dotnet/FTCRegex/bin/Debug/netcoreapp2.0/FTCRegex.runtimeconfig.dev.json
+/home/maycon/dotnet/FTCRegex/bin/Debug/netcoreapp2.0/FTCRegex.dll
+/home/maycon/dotnet/FTCRegex/bin/Debug/netcoreapp2.0/FTCRegex.pdb
+/home/maycon/dotnet/FTCRegex/obj/Debug/netcoreapp2.0/FTCRegex.csproj.CoreCompileInputs.cache
+/home/maycon/dotnet/FTCRegex/obj/Debug/netcoreapp2.0/FTCRegex.AssemblyInfoInputs.cache
+/home/maycon/dotnet/FTCRegex/obj/Debug/netcoreapp2.0/FTCRegex.AssemblyInfo.cs
+/home/maycon/dotnet/FTCRegex/obj/Debug/netcoreapp2.0/FTCRegex.dll
+/home/maycon/dotnet/FTCRegex/obj/Debug/netcoreapp2.0/FTCRegex.pdb
