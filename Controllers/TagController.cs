@@ -61,7 +61,14 @@ namespace FTCRegex.Controllers
                     }
                     else
                     {
-                        sb.Add(new Symbol($"{x}"));
+                        if(x == '+')
+                            sb.Add(Operator.UNION);
+                        else if(x == '.')
+                            sb.Add(Operator.CONCAT);
+                        else if(x == '*')
+                            sb.Add(Operator.KLEENE);
+                        else
+                            sb.Add(new Symbol($"{x}"));
                     }
                 }
                 if(valid)
@@ -81,13 +88,30 @@ namespace FTCRegex.Controllers
             _context.Tags.Add(item);
             _context.SaveChanges();
             response.Code = FTCResponse.INFO;
+            response.Content = String.Format(Tag.TAG_DEFINED, item.Name);
             }
             return response;
         }
 
-        public Tag[] GetAction()
+        [HttpGet]
+        public Tag[] Get()
         {
             return _context.Tags.ToArray();
+        }
+
+
+        
+        // GET api/tags/id
+        [HttpGet("{id}")]
+        public Tag Get(int id)
+        {
+            var itens = from u in _context.Tags
+                                where u.TagId == id
+                                select u;
+            var ret = itens.ToArray();
+            if(ret.Length > 0)
+                return ret[0];
+            return new Tag();
         }
     }
 }

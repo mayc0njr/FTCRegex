@@ -1,4 +1,4 @@
-
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace FTCRegex.Models
 {
@@ -14,9 +14,12 @@ namespace FTCRegex.Models
         public static readonly char[] ESCAPE = {'*', '.', '+', 'n', '\\', 'l'};
         public const string INVALID_NAME = "Tag name invalid.";
         public const string INVALID_DEFINITION = "Tag definition invalid.";
+        public const string TAG_DEFINED = "Tag {0} defined sucessful";
         public int TagId { get; set; }
         public string Name { get; set; }
         public string Definition { get; set; }
+
+        [NotMapped]
         public Automaton Automaton { get; set; }
 
         public override bool Equals(object obj)

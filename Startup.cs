@@ -28,6 +28,8 @@ namespace FTCRegex
         public IServiceProvider ConfigureServices(IServiceCollection services)
         {
             var connection = Configuration["ConnectionStrings:DefaultConnection"];
+            Console.WriteLine($"connection: {connection}");
+            connection = "Server=localhost;DataBase=ftcRegex;Uid=ftcmanager;Pwd=8301;";
             services.AddEntityFrameworkMySql()
             .AddOptions()
             .AddDbContext<TagContext>(opt => opt.UseMySql(connection));
@@ -44,7 +46,6 @@ namespace FTCRegex
             }
 
             app.UseMvc();
-            Console.WriteLine("CHEGOU AQUI E DEU MERDA DEPOIS...");
             var dbContext = serviceProvider.GetService<TagContext>();
             InitializeBD.Initialize(dbContext);
         }
