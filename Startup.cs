@@ -29,7 +29,7 @@ namespace FTCRegex
         {
             var connection = Configuration["ConnectionStrings:DefaultConnection"];
             Console.WriteLine($"connection: {connection}");
-            connection = "Server=localhost;DataBase=ftcRegex;Uid=ftcmanager;Pwd=8301;";
+            // connection = "Server=localhost;DataBase=ftcRegex;Uid=ftcmanager;Pwd=8301;";
             services.AddEntityFrameworkMySql()
             .AddOptions()
             .AddDbContext<TagContext>(opt => opt.UseMySql(connection));

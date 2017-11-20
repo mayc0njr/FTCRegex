@@ -17,13 +17,23 @@ namespace FTCRegex
             BuildWebHost(args).Run();
         }
 
-        public static IWebHost BuildWebHost(string[] args) =>
-            WebHost.CreateDefaultBuilder(args)
-                .UseStartup<Startup>()
-                // .ConfigureAppConfiguration((hostContext, config) =>
-                // {
-                //     config.AddJsonFile("myconfig.json", optional: true);
-                // })
+//      // Default BuildWebHost.
+        // public static IWebHost BuildWebHost(string[] args) =>
+        //     WebHost.CreateDefaultBuilder(args)
+        //         .UseStartup<Startup>()
+        //         .Build();
+        public static IWebHost BuildWebHost(string[] args)
+        {
+            IConfigurationRoot config = new ConfigurationBuilder()
+                .SetBasePath(Directory.GetCurrentDirectory())
+                .AddJsonFile("hosting.json", optional: false)  // add custom config file
+                // .AddJsonFile("appsettings.json", optional: true)  // add custom config file
                 .Build();
+
+            return WebHost.CreateDefaultBuilder(args)
+                .UseConfiguration(config)  // include reference to config
+                .UseStartup<Startup>()
+                .Build();
+        }
     }
 }
