@@ -8,7 +8,7 @@ namespace FTCRegex.Models
     public class Transition
     {
         public State Target { get; set; }
-        public char Symbol { get; set; }
+        public Symbol Symbol { get; set; }
 
 
         public int StateId { get; set; }

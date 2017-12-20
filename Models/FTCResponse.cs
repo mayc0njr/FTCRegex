@@ -18,5 +18,6 @@ namespace FTCRegex.Models
 
         public int Code { get; set; } //0=Info, 1=Warning, 2=Error.
         public string Content { get; set; }
+        public int Id { get; set; }
     }
 }

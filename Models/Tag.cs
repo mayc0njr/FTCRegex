@@ -1,8 +1,9 @@
+using System;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace FTCRegex.Models
 {
-    public class Tag
+    public class Tag : IComparable
     {
         public const char ESCAPE_CHAR = '\\';
         public const int WILDCARD = 0;
@@ -15,6 +16,8 @@ namespace FTCRegex.Models
         public const string INVALID_NAME = "Tag name invalid.";
         public const string INVALID_DEFINITION = "Tag definition invalid.";
         public const string TAG_DEFINED = "Tag {0} defined sucessful.";
+        public const string TAG_EXISTS = "Already exists a Tag with this name or definition.";
+        
         public int TagId { get; set; }
         
         public string Name { get; set; }
@@ -22,6 +25,11 @@ namespace FTCRegex.Models
 
         [NotMapped]
         public Automaton Automaton { get; set; }
+
+
+        //Principal entity
+        public int GroupId { get; set; }
+        public Group Group { get; set; }
 
         public override bool Equals(object obj)
         {
@@ -43,7 +51,7 @@ namespace FTCRegex.Models
 
         public bool Equals(Tag t)
         {
-            return Name == t.Name || Definition == t.Definition;
+            return Name.Equals(t.Name) || Definition.Equals(t.Definition);
         }
         
         // override object.GetHashCode
@@ -51,5 +59,13 @@ namespace FTCRegex.Models
         {
             return Definition.GetHashCode();
         }
+
+        public int CompareTo(object obj)
+        {
+            if(obj == null || obj.GetType() != GetType())
+                throw new ArgumentException("Different types comparison");
+            return TagId.CompareTo((obj as Tag).TagId);
+        }
+
     }
 }
