@@ -1,19 +1,24 @@
 using System;
-
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace FTCRegex.Models
 {
-    [Table("Groups")]
+    [Table("grupos")]
     public class Group : IComparable
     {
         public const string GROUP_DEFAULT = "No Group defined. Using 'Default' instead.";
         public const string GROUP_NEW = "Created Group {0}.";
+        
         public int GroupId { get; set; }
 
+        
+        [Column(TypeName = "varchar(200)")]
         public string Name { get; set; }
 
+        public DateTime Created { get; set; }
+
+        //Not Mapped
         public List<Tag> Tags { get; set; }
 
         // override object.Equals

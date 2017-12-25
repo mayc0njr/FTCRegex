@@ -1,8 +1,11 @@
 using System;
 using System.ComponentModel.DataAnnotations.Schema;
 
+using FTCRegex.Parser;
+
 namespace FTCRegex.Models
 {
+    [Table("tags")]
     public class Tag : IComparable
     {
         public const char ESCAPE_CHAR = '\\';
@@ -17,11 +20,20 @@ namespace FTCRegex.Models
         public const string INVALID_DEFINITION = "Tag definition invalid.";
         public const string TAG_DEFINED = "Tag {0} defined sucessful.";
         public const string TAG_EXISTS = "Already exists a Tag with this name or definition.";
-        
+
+        //Columns
         public int TagId { get; set; }
-        
+
+        [Column(TypeName = "varchar(200)")]
         public string Name { get; set; }
+        
+        [Column(TypeName = "varchar(200)")]
         public string Definition { get; set; }
+        
+        [Column(TypeName = "varchar(200)")]
+        public string Status { get; set; }
+        
+        public DateTime Created { get; set; }
 
         [NotMapped]
         public Automaton Automaton { get; set; }
@@ -30,6 +42,8 @@ namespace FTCRegex.Models
         //Principal entity
         public int GroupId { get; set; }
         public Group Group { get; set; }
+        public int UserId { get; set; }
+        public User User { get; set; }
 
         public override bool Equals(object obj)
         {
