@@ -33,6 +33,8 @@ namespace FTCRegex
             services.AddEntityFrameworkMySql()
             .AddOptions()
             .AddDbContext<TagContext>(opt => opt.UseMySql(connection));
+            // .AddDbContext<UserContext>(opt => opt.UseMySql(connection));
+            // .AddDbContext<CommentContext>(opt => opt.UseMySql(connection));
             services.AddMvc();
             return services.BuildServiceProvider();
         }
@@ -47,7 +49,11 @@ namespace FTCRegex
 
             app.UseMvc();
             var dbContext = serviceProvider.GetService<TagContext>();
+            // var dbContext2 = serviceProvider.GetService<UserContext>();
+            // var dbContext3 = serviceProvider.GetService<CommentContext>();
             InitializeBD.Initialize(dbContext);
+            // InitializeBD.Initialize(dbContext2);
+            // InitializeBD.Initialize(dbContext3);
         }
     }
 }
