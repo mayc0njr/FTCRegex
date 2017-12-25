@@ -1,6 +1,6 @@
 
 
-namespace FTCRegex.Models
+namespace FTCRegex.Parser
 {
     /* Represents a single symbol that can be Stacked into a SymbolStack.
      * Provides the basic function to compare symbols.

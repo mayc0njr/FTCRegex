@@ -1,7 +1,7 @@
 
 
 
-namespace FTCRegex.Models
+namespace FTCRegex.Parser
 {
     /* Represents an operators between Stackable Elements, like Sequences or symbols.
      * Provides basic compare and represent functions.

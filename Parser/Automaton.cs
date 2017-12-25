@@ -1,6 +1,6 @@
 using System.Collections.Generic;
 
-namespace FTCRegex.Models
+namespace FTCRegex.Parser
 {
     /* Represents a Automaton, that contains an Alphabet, a set of states, a set of final states. (with transition function).
      * Used to recognize tags, accepting/rejecting inputs.

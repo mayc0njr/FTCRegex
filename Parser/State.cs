@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using System;
 
-namespace FTCRegex.Models
+namespace FTCRegex.Parser
 {
     /* Represents a State from an finite automaton.
      * Contains an ID, and a "transition function" represented as a list of transitions.

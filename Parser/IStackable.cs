@@ -1,4 +1,4 @@
-namespace FTCRegex.Models
+namespace FTCRegex.Parser
 {
     
     /* Represents an object that can be stacked on the SymbolStack.
