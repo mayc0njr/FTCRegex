@@ -1,6 +1,3 @@
-<<<<<<< HEAD
-# StringParser
-A String Analyzer to define and reconize tags in Strings.
 =======
 # FTCRegex
 
@@ -14,4 +11,3 @@ __________                                   __________
  |____|_  / \___  > \___  /  \___  >/__/\_ \  |____|    (____  / |__|   /____  > \___  > |__|   
         \/      \/ /_____/       \/       \/                 \/              \/      \/         
 </pre>
->>>>>>> 34a593358fb35480af5e09bca003ebd781db7cd7
