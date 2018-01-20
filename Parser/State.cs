@@ -1,18 +1,27 @@
-using System.Collections.Generic;
 using System;
+using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace FTCRegex.Parser
 {
     /* Represents a State from an finite automaton.
-     * Contains an ID, and a "transition function" represented as a list of transitions.
+     * Contains an ID, a bool indicating if is a final-state, and a "transition function" represented as a list of transitions.
      * */
     public class State
     {
         public int StateId { get; set; }
-        public List<Transition> Transitions { get; set; }
+
+        public bool Final { get; set; }
+        public bool Initial { get; set; }
 
         public int AutomatonId { get; set; }
         public Automaton Automaton { get; set; }
+        
+        [InverseProperty("From")]
+        public List<Transition> FromHere { get; set; }
+
+        [InverseProperty("Targe")]
+        public List<Transition> TargetHere { get; set; }
 
         public override bool Equals(object obj)
         {

@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace FTCRegex.Models
@@ -10,12 +11,15 @@ namespace FTCRegex.Models
         public const string GROUP_DEFAULT = "No Group defined. Using 'Default' instead.";
         public const string GROUP_NEW = "Created Group {0}.";
         
+        [Column("id_grupo")]
         public int GroupId { get; set; }
 
         
-        [Column(TypeName = "varchar(200)")]
+        [Column("nome", TypeName = "varchar(200)")]
         public string Name { get; set; }
 
+        [Column("data_criacao")]
+        [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
         public DateTime Created { get; set; }
 
         //Not Mapped

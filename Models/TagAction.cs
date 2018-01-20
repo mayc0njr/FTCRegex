@@ -6,10 +6,11 @@ namespace FTCRegex.Models
     [Table("tags_acao")]
     public class TagAction : IComparable
     {
+        [Column("id_acao")]
         public int TagActionId { get; set; }
 
-        [Column(TypeName = "varchar(200)")]
-        public string Descricao { get; set; }
+        [Column("descricao",TypeName = "varchar(200)")]
+        public string Description { get; set; }
         
         public int CompareTo(object obj)
         {

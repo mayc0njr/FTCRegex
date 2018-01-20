@@ -1,4 +1,5 @@
 using System;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 using FTCRegex.Parser;
@@ -22,17 +23,20 @@ namespace FTCRegex.Models
         public const string TAG_EXISTS = "Already exists a Tag with this name or definition.";
 
         //Columns
+        [Column("id_tag")]
         public int TagId { get; set; }
 
-        [Column(TypeName = "varchar(200)")]
+        [Column("nome",TypeName = "varchar(200)")]
         public string Name { get; set; }
         
-        [Column(TypeName = "varchar(200)")]
+        [Column("definicao",TypeName = "varchar(200)")]
         public string Definition { get; set; }
         
-        [Column(TypeName = "varchar(200)")]
+        [Column("status",TypeName = "varchar(200)")]
         public string Status { get; set; }
         
+        [Column("data_criacao")]
+        [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
         public DateTime Created { get; set; }
 
         [NotMapped]
@@ -40,8 +44,11 @@ namespace FTCRegex.Models
 
 
         //Principal entity
+        [Column("id_grupo")]
         public int GroupId { get; set; }
         public Group Group { get; set; }
+
+        [Column("id_usuario")]
         public int UserId { get; set; }
         public User User { get; set; }
 

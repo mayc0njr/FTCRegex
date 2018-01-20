@@ -1,4 +1,5 @@
 using System;
+using System.ComponentModel.DataAnnotations;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
 
@@ -8,16 +9,20 @@ namespace FTCRegex.Models
     public class User : IComparable
     {
         //Columns
+        [Column("id_usuario")]
         public int UserId { get; set; }
 
-        [Column(TypeName = "varchar(200)")]
+        [Column("nome", TypeName = "varchar(200)")]
         public string Name { get; set; }
         
-        [Column(TypeName = "varchar(200)")]
+        [Column("email", TypeName = "varchar(200)")]
         public string Email { get; set; }
         
-        [Column(TypeName = "varchar(200)")]
+        [Column("senha", TypeName = "varchar(200)")]
         public string Password { get; set; }
+
+        [Column("data_criacao")]
+        [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
         public DateTime Created { get; set; }
 
         [InverseProperty("Follower")]

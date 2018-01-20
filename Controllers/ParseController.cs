@@ -10,11 +10,11 @@ using FTCRegex.Parser;
 namespace FTCRegex.Controllers
 {
     [Route("api/[controller]")]
-    public class TagController : Controller
+    public class ParseController : Controller
     {
         private readonly TagContext _context;
 
-        public TagController(TagContext context)
+        public ParseController(TagContext context)
         {
             _context = context;
         }
