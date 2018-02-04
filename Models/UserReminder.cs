@@ -14,10 +14,12 @@ namespace FTCRegex.Models
 
         // public int UserId { get; set; }
         [Column("id_usuario")]
+        public int UserId { get; set; }
         public User User { get; set; }
 
         // public int PasswordReminderId { get; set; }
         [Column("id_senha_lembrete")]
+        public int PasswordReminderId { get; set; }
         public PasswordReminder PasswordReminder { get; set; }
         public int CompareTo(object obj)
         {

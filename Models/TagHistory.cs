@@ -18,9 +18,11 @@ namespace FTCRegex.Models
         public DateTime Created { get; set; }
 
         [Column("id_tag")]
+        public int TagId { get; set; }
         public Tag Tag { get; set; }
 
         [Column("id_acao")]
+        public int TagActionId { get; set; }
         public TagAction TagAction { get; set; }
 
         public int CompareTo(object obj)

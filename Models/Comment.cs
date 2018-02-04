@@ -14,9 +14,11 @@ namespace FTCRegex.Models
         public string Description { get; set; }
 
         [Column("id_tag")]
+        public int TagId { get; set; }
         public Tag Tag { get; set; }
 
         [Column("id_usuario")]
+        public int UserId { get; set; }
         public User User { get; set; }
 
         [Column("data_criacao")]
