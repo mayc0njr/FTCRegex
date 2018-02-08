@@ -18,6 +18,7 @@ namespace FTCRegex.Models
         public const int LAMBDA = 5;
         public static readonly char[] ESCAPE = {'*', '.', '+', 'n', '\\', 'l'};
         public const string INVALID_NAME = "Tag name invalid.";
+        public const string INVALID_USER = "User id invalid.";
         public const string INVALID_DEFINITION = "Tag definition invalid.";
         public const string TAG_DEFINED = "Tag {0} defined sucessful.";
         public const string TAG_EXISTS = "Already exists a Tag with this name or definition.";

@@ -19,6 +19,19 @@ namespace FTCRegex.Controllers
             _context = context;
         }
 
+        
+
+        [HttpPatch("{id}")]
+        public FTCResponse Update(int id, [FromBody]FTCRequest reqItem){
+
+            Tag item = new Tag(){
+                Name = reqItem.Name,
+                Definition = reqItem.Definition,
+                UserId = reqItem.UserId,
+            };
+            Tag db = _context.Tags.FirstOrDefault(w => w.UserId == item.UserId);
+            return new FTCResponse();
+        }
         // POST api/values
         [HttpPost]
         public FTCResponse Create([FromBody]FTCRequest reqItem)
@@ -27,6 +40,7 @@ namespace FTCRegex.Controllers
             Tag item = new Tag(){
                 Name = reqItem.Name,
                 Definition = reqItem.Definition,
+                Created = DateTime.Now
             };
             SymbolStack sb = new SymbolStack();
             var response = new FTCResponse(){
@@ -118,6 +132,13 @@ namespace FTCRegex.Controllers
                 return response;
             }
 
+            //Invalid user.
+            item.User = _context.Users.FirstOrDefault(i => i.UserId == reqItem.UserId);
+            if(item.User == null){
+                response.Content = $"{Tag.INVALID_USER} ({reqItem.UserId})";
+                response.Code = FTCResponse.ERROR;
+                return response;
+            }
             //Group not defined... picking default.
             if(reqItem.Group == null || reqItem.Group.Length == 0)
             {
