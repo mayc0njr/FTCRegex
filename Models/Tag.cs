@@ -91,5 +91,9 @@ namespace FTCRegex.Models
             return TagId.CompareTo((obj as Tag).TagId);
         }
 
+        public override string ToString(){
+            return $"Name: {Name}\nDefinition: {Definition}\nGroup: {Group}\nCreated: {Created}\nUserId: {UserId}";
+        }
+
     }
 }

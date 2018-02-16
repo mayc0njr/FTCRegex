@@ -39,14 +39,16 @@ namespace FTCRegex.Controllers
             var response = new FTCResponse(){
                 Code = FTCResponse.ERROR //Error
             };
+            Console.WriteLine("RECEBIDO: \n" + reqItem);
             if(reqItem == null){
                 response.Content = FTCResponse.INVALID_REQUEST;
             }
             Tag item = new Tag(){
                 Name = reqItem.Name,
                 Definition = reqItem.Definition,
-                Created = DateTime.Now
+                Created = DateTime.Today
             };
+            Console.WriteLine("TAG1: \n" + item);
             SymbolStack sb = new SymbolStack();
             if(item == null){
                 response.Content = FTCResponse.INVALID_REQUEST;
@@ -164,6 +166,7 @@ namespace FTCRegex.Controllers
                 response.Content = String.Format(Tag.TAG_DEFINED, item.Name);
             }
 
+            Console.WriteLine("TAG2: \n" + item);
             _context.Tags.Add(item);
             _context.SaveChanges();
             response.Id = item.TagId;
