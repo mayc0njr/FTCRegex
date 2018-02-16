@@ -1,4 +1,5 @@
 using System;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 using FTCRegex.Parser;
@@ -17,22 +18,28 @@ namespace FTCRegex.Models
         public const int LAMBDA = 5;
         public static readonly char[] ESCAPE = {'*', '.', '+', 'n', '\\', 'l'};
         public const string INVALID_NAME = "Tag name invalid.";
+        public const string INVALID_USER = "User id  ({0}) invalid.";
+        public const string INVALID_TAG = "Tag id  ({0}) not found.";
         public const string INVALID_DEFINITION = "Tag definition invalid.";
         public const string TAG_DEFINED = "Tag {0} defined sucessful.";
+        public const string TAG_REDEFINED = "Tag {0} re-defined sucessful.";
         public const string TAG_EXISTS = "Already exists a Tag with this name or definition.";
 
         //Columns
+        [Column("id_tag")]
         public int TagId { get; set; }
 
-        [Column(TypeName = "varchar(200)")]
+        [Column("nome",TypeName = "varchar(200)")]
         public string Name { get; set; }
         
-        [Column(TypeName = "varchar(200)")]
+        [Column("definicao",TypeName = "varchar(200)")]
         public string Definition { get; set; }
         
-        [Column(TypeName = "varchar(200)")]
+        [Column("status",TypeName = "varchar(200)")]
         public string Status { get; set; }
         
+        [Column("data_criacao")]
+        [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
         public DateTime Created { get; set; }
 
         [NotMapped]
@@ -40,8 +47,11 @@ namespace FTCRegex.Models
 
 
         //Principal entity
+        [Column("id_grupo")]
         public int GroupId { get; set; }
         public Group Group { get; set; }
+
+        [Column("id_usuario")]
         public int UserId { get; set; }
         public User User { get; set; }
 

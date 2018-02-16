@@ -4,17 +4,20 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace FTCRegex.Models
 {
-    [Table("usuarios_seguidores")]
+    [Table("usuarios_relacao")]
     public class UserFollow : IComparable
     {
+        [Column("id_relacao")]
         public int UserFollowId { get; set; }
 
-        // public int FollowerId { get; set; }
         // [ForeignKey("UserForeignKey")]
+        [Column("id_seguidor")]
+        public int FollowerId { get; set; }
         public User Follower { get; set; }
         
-        // public int FollowingId { get; set; }
         // [ForeignKey("UserForeignKey")]
+        [Column("id_seguindo")]
+        public int FollowingId { get; set; }
         public User Following { get; set; }
 
         public int CompareTo(object obj)

@@ -14,6 +14,10 @@ namespace FTCRegex.Models
         public string ConnectionString{ get; set; }
         public UserContext(DbContextOptions<UserContext> options) : base(options)
         {
+            System.Console.WriteLine("Initializing Users");
+            System.Console.WriteLine("Initializing UserFollowers");
+            System.Console.WriteLine("Initializing UserReminders");
+            System.Console.WriteLine("Initializing PasswordReminders");
         }
 
 

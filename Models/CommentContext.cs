@@ -10,6 +10,7 @@ namespace FTCRegex.Models
         public string ConnectionString{ get; set; }
         public CommentContext(DbContextOptions<CommentContext> options) : base(options)
         {
+            System.Console.WriteLine("Initializing Comments");
         }
 
 

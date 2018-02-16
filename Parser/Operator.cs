@@ -12,8 +12,11 @@ namespace FTCRegex.Parser
         public static readonly Operator UNION = new Operator("Union", 2, "+");
         public static readonly Operator CONCAT = new Operator("Concat", 2, ".");
         public static readonly Operator KLEENE = new Operator("Kleene", 1, "*");
+        //Name of the operator.
         public string Name { get; }
+        //Count of Operands.
         public int Operands { get; }
+        //Human-Readable representation.
         private string Representation { get; }
 
         public Operator(string name, int operands, string representation){
@@ -30,12 +33,6 @@ namespace FTCRegex.Parser
         // override object.Equals
         public override bool Equals(object obj)
         {
-            //
-            // See the full list of guidelines at
-            //   http://go.microsoft.com/fwlink/?LinkID=85237
-            // and also the guidance for operator== at
-            //   http://go.microsoft.com/fwlink/?LinkId=85238
-            //
             
             if (obj == null || GetType() != obj.GetType())
             {
@@ -44,6 +41,7 @@ namespace FTCRegex.Parser
             return Equals (obj as Operator);
         }
 
+        //Compare operator name and number of operands to determine equality.
         public bool Equals(Operator o)
         {
             return this.Name.Equals(o.Name) && this.Operands == o.Operands;

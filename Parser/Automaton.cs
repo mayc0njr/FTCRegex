@@ -1,4 +1,7 @@
 using System.Collections.Generic;
+using System.Linq;
+
+using FTCRegex.Models;
 
 namespace FTCRegex.Parser
 {
@@ -8,18 +11,30 @@ namespace FTCRegex.Parser
     public class Automaton
     {
         public List<State> States { get; set; }
-        public List<State> FinalStates { get; set; }
-        public State InitialState { get; set; }
         public List<char> Alphabet { get; set; }
+
+        public int TagId { get; set; }
+        public Tag Tag { get; set; }
 
         public bool IsFinal(State s)
         {
-            return FinalStates.Contains(s);
+            return s.Final;
         }
-
         public bool IsInitial(State s)
         {
-            return this.InitialState.Equals(s);
+            return s.Initial;
+        }
+
+        public IEnumerable<State> FinalStates {
+            get
+            {
+                return States.Where(item => item.Final);
+            }
+        }
+
+        public  IEnumerable<State> InitialStates(State s)
+        {
+                return States.Where(item => item.Initial);
         }
     }
 }
