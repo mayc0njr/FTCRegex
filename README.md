@@ -1,7 +1,3 @@
-<<<<<<< HEAD
-=======
-=======
->>>>>>> 99960cdac9e82f7f6da2d9d050ef520bda94d7e1
 # FTCRegex
 
 A Regular-Expression parser Web-Service.
