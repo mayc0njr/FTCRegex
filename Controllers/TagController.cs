@@ -82,7 +82,7 @@ namespace FTCRegex.Controllers
             // if(itens.Any())
 
             //Error if have repeated tags.
-            if(_context.Tags.Any(u=>u.Name.Equals(item.Name) || u.Definition.Equals(item.Definition)))
+            if(_context.Tags.Any(u=>u.Name.Equals(item.Name) && u.UserId.Equals(reqItem.UserId)))
             // if(_context.Tags.Any(u=>u.Equals(item)))
             {
                 response.Content = Tag.TAG_EXISTS;
