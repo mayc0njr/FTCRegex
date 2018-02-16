@@ -46,7 +46,7 @@ namespace FTCRegex.Controllers
             Tag item = new Tag(){
                 Name = reqItem.Name,
                 Definition = reqItem.Definition,
-                Created = DateTime.Today
+                // Created = DateTime.Today
             };
             Console.WriteLine("TAG1: \n" + item);
             SymbolStack sb = new SymbolStack();
@@ -139,7 +139,7 @@ namespace FTCRegex.Controllers
             //Invalid user.
             item.User = _context.Users.FirstOrDefault(i => i.UserId == reqItem.UserId);
             if(item.User == null){
-                response.Content = $"{Tag.INVALID_USER} ({reqItem.UserId})";
+                response.Content = String.Format(Tag.INVALID_USER, reqItem.UserId);
                 response.Code = FTCResponse.ERROR;
                 return response;
             }
