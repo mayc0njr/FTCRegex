@@ -37,10 +37,6 @@ namespace FTCRegex.Models
         
         [Column("status",TypeName = "varchar(200)")]
         public string Status { get; set; }
-        
-        [Column("data_criacao")]
-        [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
-        public DateTime Created { get; set; }
 
         [NotMapped]
         public Automaton Automaton { get; set; }
@@ -92,7 +88,7 @@ namespace FTCRegex.Models
         }
 
         public override string ToString(){
-            return $"Name: {Name}\nDefinition: {Definition}\nGroup: {Group}\nCreated: {Created}\nUserId: {UserId}";
+            return $"Name: {Name}\nDefinition: {Definition}\nGroup: {Group}\nUserId: {UserId}";
         }
 
     }

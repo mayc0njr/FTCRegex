@@ -46,7 +46,6 @@ namespace FTCRegex.Controllers
             Tag item = new Tag(){
                 Name = reqItem.Name,
                 Definition = reqItem.Definition,
-                // Created = DateTime.Today
             };
             Console.WriteLine("TAG1: \n" + item);
             SymbolStack sb = new SymbolStack();
